@@ -224,11 +224,20 @@ GROQ_API_KEY = "gsk_xxxxxxxxxxxxxxxxxxxxxxxx"
 ## 👥 Team
 
 Built at AI Hackathon 2025 by students of Sir Syed University of Engineering and Technology (SSUET), Karachi, Pakistan.
+
 **Asad Ur Rehman**  
 [LinkedIn](https://www.linkedin.com/in/asad-ur-rehman-108439285/) · [GitHub](https://github.com/Asad-Ur-R)
 
+**Ali Sheikh**
+[LinkedIn](https://www.linkedin.com/in/ali-sheikh-674298352?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) · [GitHub](https://github.com/ALISHEIKH10)
+
+**Huzaifa Imran** 
+[LinkedIn](https://www.linkedin.com/in/huzaifa-imran-/) · [GitHub](https://github.com/Huzaifa823)
+
 ---
 
+## APP
+[StreamLit](https://edusenseai.streamlit.app/)
 ## 📄 License
 
 This project is open source and available under the MIT License.

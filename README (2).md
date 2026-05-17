@@ -4,7 +4,7 @@
 
 ## 🎓 Overview
 
-EduRisk AI is an AI-powered teacher assistant built for the AI Hackathon 2025. It solves a real problem in Pakistani classrooms — teachers cannot individually monitor every student's attendance, quiz performance, assignment behavior, and learning gaps, especially in large classrooms.
+EduRisk AI is an AI-powered teacher assistant. It solves a real problem in classrooms, teachers cannot individually monitor every student's attendance, quiz performance, assignment behavior, and learning gaps, especially in large classrooms.
 
 The solution is a Streamlit-based web application where any teacher uploads their class CSV file and instantly gets AI-powered risk detection, assignment grading via OCR, personalized intervention plans, bilingual parent reports, and auto-generated worksheets — all in one platform powered by Groq API.
 
@@ -158,7 +158,7 @@ streamlit run main.py
 
 ## 📊 How to Use
 
-1. Open the app in your browser at http://localhost:8501
+1. Open the app in your browser
 2. On the Home page click Download Template CSV to get the sample file
 3. Fill the template with your real students or use the sample as-is
 4. Upload the CSV using the uploader on the Home page
@@ -224,6 +224,8 @@ GROQ_API_KEY = "gsk_xxxxxxxxxxxxxxxxxxxxxxxx"
 ## 👥 Team
 
 Built at AI Hackathon 2025 by students of Sir Syed University of Engineering and Technology (SSUET), Karachi, Pakistan.
+**Asad Ur Rehman**  
+[LinkedIn](https://www.linkedin.com/in/asad-ur-rehman-108439285/) · [GitHub](https://github.com/Asad-Ur-R)
 
 ---
 

@@ -74,8 +74,8 @@ st.markdown("""
 # ── Hero ──────────────────────────────────────────────────────────────────────
 st.markdown("""
 <div class="hero-container">
-    <div class="hero-badge">🤖 AI-Powered · Hackathon 2025</div>
-    <div class="hero-title">EduRisk <span>AI</span> Platform</div>
+    <div class="hero-badge">🤖 AI-Powered</div>
+    <div class="hero-title">EduSense <span>AI</span> Platform</div>
     <div class="hero-subtitle">
         Upload your class data and instantly get AI-powered risk detection,
         assignment grading, personalized interventions, and parent reports.

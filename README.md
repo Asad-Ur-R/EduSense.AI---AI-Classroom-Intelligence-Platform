@@ -223,7 +223,7 @@ GROQ_API_KEY = "gsk_xxxxxxxxxxxxxxxxxxxxxxxx"
 
 ## 👥 Team
 
-Built at AI Hackathon 2025 by students of Sir Syed University of Engineering and Technology (SSUET), Karachi, Pakistan.
+Built at AI Hackathon 2026 by students of Sir Syed University of Engineering and Technology (SSUET), Karachi, Pakistan.
 
 **Asad Ur Rehman**  
 [LinkedIn](https://www.linkedin.com/in/asad-ur-rehman-108439285/) · [GitHub](https://github.com/Asad-Ur-R)

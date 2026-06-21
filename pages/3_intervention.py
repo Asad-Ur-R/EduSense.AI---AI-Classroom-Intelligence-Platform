@@ -13,7 +13,7 @@ st.title("🚨 Intervention Plans")
 df = get_at_risk_students(35)
 
 if df.empty:
-    st.success("🎉 No at-risk students found in your dataset!")
+    st.success(" No at-risk students found in your dataset!")
     st.stop()
 
 names    = df["name"].tolist()
@@ -27,9 +27,9 @@ if selected:
     c3.metric("Quiz Avg",    f"{student['quiz_avg']}%")
     c4.metric("Overall",     f"{student['overall_score']}%")
 
-    st.info(f"⚠️ Weak Topics: **{student.get('weak_topic','N/A')}** | **{student.get('second_weak_topic','N/A')}**")
+    st.info(f" Weak Topics: **{student.get('weak_topic','N/A')}** | **{student.get('second_weak_topic','N/A')}**")
 
-    if st.button("🤖 Generate Intervention Plan", type="primary"):
+    if st.button(" Generate Intervention Plan", type="primary"):
         with st.spinner("Creating plan..."):
             plan = get_intervention_plan(student)
         st.subheader("Intervention Plan")

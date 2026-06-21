@@ -71,22 +71,22 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ── Hero ──────────────────────────────────────────────────────────────────────
+# Hero
 st.markdown("""
 <div class="hero-container">
-    <div class="hero-badge">🤖 AI-Powered</div>
+    <div class="hero-badge"> AI-Powered</div>
     <div class="hero-title">EduSense <span>AI</span> Platform</div>
     <div class="hero-subtitle">
         Upload your class data and instantly get AI-powered risk detection,
         assignment grading, personalized interventions, and parent reports.
     </div>
     <div class="hero-pills">
-        <span class="pill">📊 Risk Detection</span>
-        <span class="pill">📝 Assignment Grading</span>
-        <span class="pill">🎯 Interventions</span>
-        <span class="pill">📨 Parent Reports</span>
-        <span class="pill">📄 Worksheets</span>
-        <span class="pill">🤖 AI Chatbot</span>
+        <span class="pill"> Risk Detection</span>
+        <span class="pill"> Assignment Grading</span>
+        <span class="pill"> Interventions</span>
+        <span class="pill"> Parent Reports</span>
+        <span class="pill"> Worksheets</span>
+        <span class="pill"> AI Chatbot</span>
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -103,7 +103,7 @@ col_up, col_dl = st.columns([3, 1], gap="large")
 with col_dl:
     st.markdown("**Don't have a file yet?**")
     st.download_button(
-        label="📥 Download Template CSV",
+        label=" Download Template CSV",
         data=template_bytes,
         file_name="students_template.csv",
         mime="text/csv",
@@ -119,17 +119,17 @@ with col_up:
         help="Must include: name, grade, subject, attendance_pct, quiz_avg, overall_score"
     )
 
-# ── Process Upload ─────────────────────────────────────────────────────────────
+# Process Upload
 if uploaded_file is not None:
     try:
         raw_df = pd.read_csv(uploaded_file)
         df, warnings, missing_cols = validate_and_prepare(raw_df)
 
         if missing_cols:
-            st.error(f"❌ **Cannot load file.** These required columns are missing:")
+            st.error(f" **Cannot load file.** These required columns are missing:")
             for col in missing_cols:
                 st.markdown(f'<span class="missing-pill">✗ {col}</span>', unsafe_allow_html=True)
-            st.info("💡 Download the template above to see the correct column names.")
+            st.info(" Download the template above to see the correct column names.")
             st.stop()
 
         # Store in session state — all pages read from here
@@ -138,14 +138,14 @@ if uploaded_file is not None:
 
         # Show warnings for auto-computed columns
         if warnings:
-            with st.expander("⚠️ Some columns were auto-computed (click to see)", expanded=False):
+            with st.expander(" Some columns were auto-computed (click to see)", expanded=False):
                 for w in warnings:
                     st.caption(f"• {w}")
 
         # Success banner
         st.markdown(f"""
         <div class="success-banner">
-            <span style="font-size:24px;">✅</span>
+            <span style="font-size:24px;"></span>
             <div>
                 <div style="font-weight:700; color:#68d391; font-size:15px;">
                     {uploaded_file.name} loaded successfully
@@ -157,22 +157,22 @@ if uploaded_file is not None:
         </div>""", unsafe_allow_html=True)
 
         # Show detected columns
-        with st.expander("📋 Detected columns in your file", expanded=False):
+        with st.expander(" Detected columns in your file", expanded=False):
             for col in df.columns:
                 st.markdown(f'<span class="col-pill">{col}</span>', unsafe_allow_html=True)
 
     except Exception as e:
-        st.error(f"❌ Failed to read file: {str(e)}")
+        st.error(f" Failed to read file: {str(e)}")
         st.stop()
 
 elif "df" in st.session_state:
     # File was uploaded in a previous interaction — still active
-    st.success(f"✅ Using previously uploaded: **{st.session_state.get('file_name', 'your file')}** — {len(st.session_state['df'])} students loaded")
+    st.success(f" Using previously uploaded: **{st.session_state.get('file_name', 'your file')}** — {len(st.session_state['df'])} students loaded")
 
 else:
     st.markdown("""
     <div class="upload-box">
-        <div class="upload-title">👆 Upload your class CSV to get started</div>
+        <div class="upload-title"> Upload your class CSV to get started</div>
         <div class="upload-sub">Or download the template, fill it in, and upload it here</div>
     </div>""", unsafe_allow_html=True)
     st.info("All pages will be unlocked once you upload your data.")
@@ -201,20 +201,20 @@ for col, cls, icon, label, value, sub in zip([c1,c2,c3,c4,c5], *zip(*[(c,i,l,v,s
         </div>""", unsafe_allow_html=True)
 
 # ── Agent Cards ───────────────────────────────────────────────────────────────
-st.markdown('<div class="section-header">🤖 Available AI Agents</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-header"> Available AI Agents</div>', unsafe_allow_html=True)
 
 agents = [
-    ("📊", "1 · Dashboard & Risk Analytics",
+    ("", "1 · Dashboard & Risk Analytics",
      "Filter and explore your students. View risk scores, attendance charts, and subject breakdowns."),
-    ("📝", "2 · Assignment Grading Agent",
+    ("", "2 · Assignment Grading Agent",
      "Upload a student's answer image + marking scheme. AI grades via OCR and returns score and feedback."),
-    ("🎯", "3 · Intervention Planning Agent",
+    ("", "3 · Intervention Planning Agent",
      "Select any at-risk student and generate a personalized 2-week improvement plan using Groq AI."),
-    ("📨", "4 · Parent Communication Agent",
+    ("", "4 · Parent Communication Agent",
      "Auto-generate formal parent reports in English or Urdu for any student with one click."),
-    ("📄", "5 · Worksheet Generator",
+    ("", "5 · Worksheet Generator",
      "Choose a topic and grade level. AI creates a custom quiz with MCQ and short-answer questions instantly."),
-    ("🤖", "6 · EduSense AI Chatbot",
+    ("", "6 · EduSense AI Chatbot",
      "Ask anything about your students in plain English. Powered by LangChain + LLaMA 3.3."),
 ]
 

@@ -58,6 +58,6 @@ if st.button("📄 Generate Worksheet", type="primary") and topic:
                     st.write(f"{chr(65+j)}) {val}")
             if marks:
                 st.caption(f"Marks: {marks}")
-            st.success(f"✅ Answer: {answer}")
+            st.success(f" Answer: {answer}")
             if explain:
-                st.info(f"💡 {explain}")
+                st.info(f" {explain}")

@@ -10,7 +10,7 @@ require_data()
 st.title("🤖 EduSense AI Assistant")
 st.caption("Ask anything about your students in plain English")
 
-with st.expander("💡 Example questions you can ask"):
+with st.expander(" Example questions you can ask"):
     st.markdown("""
 - Who are the High Risk students in Grade 10?
 - Which subject has the lowest average quiz score?

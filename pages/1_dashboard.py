@@ -25,13 +25,13 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<div class="page-title">📊 Class Dashboard</div>', unsafe_allow_html=True)
+st.markdown('<div class="page-title"> Class Dashboard</div>', unsafe_allow_html=True)
 
 df = load_students()
 
 # ── Sidebar Filters ───────────────────────────────────────────────────────────
 with st.sidebar:
-    st.markdown("## 🔍 Filters")
+    st.markdown("##  Filters")
     st.markdown("---")
     grades   = ["All"] + sorted(df["grade"].unique().tolist())
     subjects = ["All"] + sorted(df["subject"].unique().tolist())
@@ -45,7 +45,7 @@ with st.sidebar:
     st.markdown("---")
     st.markdown(f"**Total loaded:** {len(df)} students")
 
-# ── Apply Filters ─────────────────────────────────────────────────────────────
+# Apply Filters
 fdf = df.copy()
 if sel_grade   != "All": fdf = fdf[fdf["grade"]      == sel_grade]
 if sel_subject != "All": fdf = fdf[fdf["subject"]    == sel_subject]
@@ -54,7 +54,7 @@ if sel_section != "All": fdf = fdf[fdf["section"]    == sel_section]
 
 st.markdown(f'<div class="page-sub">Showing {len(fdf)} students after filters</div>', unsafe_allow_html=True)
 
-# ── Risk Cards ────────────────────────────────────────────────────────────────
+# Risk Cards
 high   = len(fdf[fdf["risk_level"] == "High Risk"])
 medium = len(fdf[fdf["risk_level"] == "Medium Risk"])
 low    = len(fdf[fdf["risk_level"] == "Low Risk"])
@@ -69,7 +69,7 @@ with c3:
 
 st.markdown("---")
 
-# ── Student Table ─────────────────────────────────────────────────────────────
+#  Student Table
 st.markdown("### 📋 Student Records")
 display_cols = [c for c in ["name","grade","section","subject","risk_score","risk_level",
                               "attendance_pct","quiz_avg","overall_score","weak_topic"] if c in fdf.columns]
@@ -85,12 +85,12 @@ st.dataframe(styled, use_container_width=True, height=350)
 
 st.markdown("---")
 
-# ── Charts ────────────────────────────────────────────────────────────────────
+# Charts
 col_l, col_r = st.columns(2)
 color_map = {"High Risk": "#fc8181", "Medium Risk": "#f6ad55", "Low Risk": "#68d391"}
 
 with col_l:
-    st.markdown("### 📈 Risk Score per Student")
+    st.markdown("###  Risk Score per Student")
     chart_df = fdf[["name","risk_score","risk_level"]].sort_values("risk_score", ascending=False).head(30)
     fig = px.bar(chart_df, x="name", y="risk_score", color="risk_level",
                  color_discrete_map=color_map, template="plotly_dark")
@@ -101,7 +101,7 @@ with col_l:
     st.plotly_chart(fig, use_container_width=True)
 
 with col_r:
-    st.markdown("### 🥧 Risk Distribution")
+    st.markdown("###  Risk Distribution")
     risk_counts = fdf["risk_level"].value_counts().reset_index()
     risk_counts.columns = ["risk_level","count"]
     fig2 = px.pie(risk_counts, names="risk_level", values="count",
@@ -112,14 +112,14 @@ with col_r:
 
 col_a, col_b = st.columns(2)
 with col_a:
-    st.markdown("### 📉 Attendance vs Overall Score")
+    st.markdown("###  Attendance vs Overall Score")
     fig3 = px.scatter(fdf, x="attendance_pct", y="overall_score", color="risk_level",
                       hover_name="name", color_discrete_map=color_map, template="plotly_dark")
     fig3.update_layout(paper_bgcolor="#0e1117", plot_bgcolor="#0e1117", height=380)
     st.plotly_chart(fig3, use_container_width=True)
 
 with col_b:
-    st.markdown("### 📚 Risk by Subject")
+    st.markdown("###  Risk by Subject")
     subj_risk = fdf.groupby(["subject","risk_level"]).size().reset_index(name="count")
     fig4 = px.bar(subj_risk, x="subject", y="count", color="risk_level",
                   color_discrete_map=color_map, barmode="stack", template="plotly_dark")
